@@ -46,20 +46,48 @@ var FirstController = /** @class */ (function () {
     }
     FirstController.prototype.home = function (req, res) {
         res.json({
-            message: "Bom vindo a api de livros, acesse localhost:3000/books para ver todos os livros"
+            message: "Bom vindo a api de livros, acesse essa url com /books para ver todos os livros"
         });
     };
-    FirstController.prototype.allBooks = function (req, res) {
-        var books = books_1.default.find(function (err, books) {
-            if (err) {
-                res.send(err);
-            }
-            else {
-                res.send(books);
-            }
+    FirstController.prototype.getAllBooks = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var books;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, books_1.default.find(function (err, books) {
+                            if (err) {
+                                res.send(err);
+                            }
+                            else {
+                                res.send(books);
+                            }
+                        })];
+                    case 1:
+                        books = _a.sent();
+                        return [2 /*return*/];
+                }
+            });
         });
     };
-    FirstController.prototype.insertBookTeste = function (req, res) {
+    FirstController.prototype.getBookById = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var id, book;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        id = req.params.id;
+                        console.log(id);
+                        return [4 /*yield*/, books_1.default.findById(id)];
+                    case 1:
+                        book = _a.sent();
+                        console.log(book);
+                        res.send(book);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    FirstController.prototype.insertBook = function (req, res) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -75,6 +103,24 @@ var FirstController = /** @class */ (function () {
                         return [2 /*return*/];
                 }
             });
+        });
+    };
+    FirstController.prototype.updateBook = function (req, res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var id;
+            return __generator(this, function (_a) {
+                id = req.params.id;
+                books_1.default.findByIdAndUpdate(id, req.body, function (err) {
+                    err ? res.send(err) : res.send("alterado com sucesso!");
+                });
+                return [2 /*return*/];
+            });
+        });
+    };
+    FirstController.prototype.delteBook = function (req, res) {
+        var id = req.params.id;
+        books_1.default.findByIdAndDelete(id, function (err) {
+            err ? res.send(err) : res.send("\u00CCd: ".concat(id, " deletado com sucesso"));
         });
     };
     return FirstController;

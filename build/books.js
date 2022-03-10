@@ -14,5 +14,5 @@ exports.BookSechema = new mongoose_1.default.Schema({
     title: { type: String, required: true },
     author: { type: String, required: true }
 });
-var Book = mongoose_1.default.model('minhacollections', exports.BookSechema);
-exports.default = Book;
+var BookModel = mongoose_1.default.model('minhacollections', exports.BookSechema);
+exports.default = BookModel;
