@@ -1,6 +1,5 @@
 import bodyParser from "body-parser";
 import express from "express"
-import { runInThisContext } from "vm";
 import { router } from "./router";
 
 export class App{
@@ -11,8 +10,7 @@ export class App{
         this.server = express();
         this.middleware();
         this.router();
-        this.parser();
-        
+        this.parser();        
     }
     
     private middleware(){

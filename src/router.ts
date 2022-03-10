@@ -3,11 +3,13 @@ import { firstController } from './controllers/firstController';
 
 const router: Router = Router();
 
-router.get('/',firstController.home);
-
-router.get('/books',firstController.allBooks);
-
-router.post('/books',firstController.insertBookTeste);
-
+router
+    .get('/',firstController.home)
+    .get('/books',firstController.getAllBooks)
+    .get('/books/:id',firstController.getBookById)
+    .post('/books',firstController.insertBook)
+    .put('/books/:id',firstController.updateBook)
+    .delete('/books/:id',firstController.delteBook)
+    .patch('/books/:id',firstController.delteBook)
 
 export {router}

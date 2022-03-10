@@ -9,8 +9,7 @@ mongoose
 export const BookSechema = new mongoose.Schema({
     title: {type:String, required: true},
     author: {type:String, required: true}
-
 })
 
-const Book = mongoose.model('minhacollections', BookSechema);
-export default Book;
+const BookModel = mongoose.model('minhacollections', BookSechema);
+export default BookModel;

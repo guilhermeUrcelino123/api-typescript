@@ -1,4 +1,5 @@
-POST http://localhost:3000/books
+###
+POST http://localhost:5000/books
 Content-Type: application/json
 
 {
@@ -7,5 +8,22 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/books
+GET http://localhost:5000/books
+Content-Type: application/json
+
+###
+GET http://localhost:5000/books/62277e3879fb76ff3e581ec8
+Content-Type: application/json
+
+###
+PUT http://localhost:5000/books/62277e3879fb76ff3e581ec8
+Content-Type: application/json
+
+{
+    "title": "livro de Typescript",
+    "author": "Gui"
+}
+
+###
+DELETE  http://localhost:5000/books/62277e3879fb76ff3e581ec8
 Content-Type: application/json
