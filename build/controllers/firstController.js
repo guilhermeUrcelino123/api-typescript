@@ -50,23 +50,13 @@ var FirstController = /** @class */ (function () {
         });
     };
     FirstController.prototype.getAllBooks = function (req, res) {
-        return __awaiter(this, void 0, void 0, function () {
-            var books;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, books_1.default.find(function (err, books) {
-                            if (err) {
-                                res.send(err);
-                            }
-                            else {
-                                res.send(books);
-                            }
-                        })];
-                    case 1:
-                        books = _a.sent();
-                        return [2 /*return*/];
-                }
-            });
+        var books = books_1.default.find(function (err, books) {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                res.send(books);
+            }
         });
     };
     FirstController.prototype.getBookById = function (req, res) {
