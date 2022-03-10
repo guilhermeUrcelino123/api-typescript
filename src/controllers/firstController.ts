@@ -6,7 +6,7 @@ class FirstController{
 
     public home(req: Request, res: Response) {
         res.json({
-            message: "Bom vindo a api de livros, acesse localhost:3000/books para ver todos os livros"
+            message: "Bom vindo a api de livros, acesse essa url com /books para ver todos os livros"
         });
     }
 
