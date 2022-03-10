@@ -10,9 +10,9 @@ class FirstController{
         });
     }
 
-    public async getAllBooks(req: Request, res: Response) {
+    public getAllBooks(req: Request, res: Response) {
         
-        let books = await BookModel.find((err:any, books:any)=>{
+        let books = BookModel.find((err:any, books:any)=>{
             if(err){
                 res.send(err)
             }else{
