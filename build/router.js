@@ -5,9 +5,10 @@ var express_1 = require("express");
 var firstController_1 = require("./controllers/firstController");
 var router = (0, express_1.Router)();
 exports.router = router;
-router.get('/', firstController_1.firstController.home);
-router.get('/books', firstController_1.firstController.getAllBooks);
-router.get('/books/:id', firstController_1.firstController.getBookById);
-router.post('/books', firstController_1.firstController.insertBook);
-router.put('/books/:id', firstController_1.firstController.updateBook);
-router.delete('/books/:id', firstController_1.firstController.updateBook);
+router
+    .get('/', firstController_1.firstController.home)
+    .get('/books', firstController_1.firstController.getAllBooks)
+    .get('/books/:id', firstController_1.firstController.getBookById)
+    .post('/books', firstController_1.firstController.insertBook)
+    .put('/books/:id', firstController_1.firstController.updateBook)
+    .delete('/books/:id', firstController_1.firstController.updateBook);
