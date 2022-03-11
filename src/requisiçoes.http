@@ -1,5 +1,5 @@
 ###
-POST http://localhost:5000/books
+POST https://teste-api-typescript.herokuapp.com/books
 Content-Type: application/json
 
 {
@@ -8,11 +8,15 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/books
+GET https://teste-api-typescript.herokuapp.com/books
 Content-Type: application/json
 
 ###
-GET http://localhost:5000/books/62277e3879fb76ff3e581ec8
+GET https://teste-api-typescript.herokuapp.com/books/622a22d0be566fcd3a86dfa9
+Content-Type: application/json
+
+###
+GET http://localhost:5000/books
 Content-Type: application/json
 
 ###
@@ -25,5 +29,14 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:5000/books/62277e3879fb76ff3e581ec8
+DELETE  http://localhost:5000/books/62277d86e3e0e73a3124bcf9
 Content-Type: application/json
+
+
+###
+PATCH http://localhost:5000/books/62277e3879fb76ff3e581ec8
+Content-Type: application/json
+
+  {   
+    "title": "livro de Typescript 3"  
+  }

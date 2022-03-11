@@ -9,6 +9,7 @@ router
     .get('/books/:id',firstController.getBookById)
     .post('/books',firstController.insertBook)
     .put('/books/:id',firstController.updateBook)
-    .delete('/books/:id',firstController.updateBook)
+    .patch('/books/:id',firstController.updateDataBook)
+    .delete('/books/:id',firstController.deleteBook)
 
 export {router}

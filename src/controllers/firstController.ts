@@ -49,12 +49,25 @@ class FirstController{
             err ? res.send(err) : res.send("alterado com sucesso!");
         });     
     }  
-    public delteBook(req: Request, res: Response) {
+    public deleteBook(req: Request, res: Response) {
 
         const {id} = req.params;
         BookModel.findByIdAndDelete(id,(err: any) => {
             err ? res.send(err) : res.send(`Ìd: ${id} deletado com sucesso`);
         });     
+
+        
+
+    }  
+
+    public updateDataBook = async (req: Request, res: Response)=>{
+        const id = req.params.id;
+        const postData: any = req.body;
+        const post = await BookModel.findByIdAndUpdate(id, postData, { new: true });
+        if (post) {
+          res.send(post);
+        }
+        
     }  
 
 }

@@ -11,4 +11,5 @@ router
     .get('/books/:id', firstController_1.firstController.getBookById)
     .post('/books', firstController_1.firstController.insertBook)
     .put('/books/:id', firstController_1.firstController.updateBook)
-    .delete('/books/:id', firstController_1.firstController.updateBook);
+    .patch('/books/:id', firstController_1.firstController.updateDataBook)
+    .delete('/books/:id', firstController_1.firstController.deleteBook);
