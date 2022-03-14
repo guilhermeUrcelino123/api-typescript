@@ -6,10 +6,11 @@ var firstController_1 = require("./controllers/firstController");
 var router = (0, express_1.Router)();
 exports.router = router;
 router
-    .get('/', firstController_1.firstController.home)
     .get('/books', firstController_1.firstController.getAllBooks)
     .get('/books/:id', firstController_1.firstController.getBookById)
     .post('/books', firstController_1.firstController.insertBook)
     .put('/books/:id', firstController_1.firstController.updateBook)
     .patch('/books/:id', firstController_1.firstController.updateDataBook)
     .delete('/books/:id', firstController_1.firstController.deleteBook);
+router
+    .get('/', firstController_1.firstController.home);

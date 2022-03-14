@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.firstController = void 0;
-var books_1 = __importDefault(require("../books"));
+var booksModel_1 = __importDefault(require("../entities/booksModel"));
 var FirstController = /** @class */ (function () {
     function FirstController() {
         var _this = this;
@@ -51,7 +51,7 @@ var FirstController = /** @class */ (function () {
                     case 0:
                         id = req.params.id;
                         postData = req.body;
-                        return [4 /*yield*/, books_1.default.findByIdAndUpdate(id, postData, { new: true })];
+                        return [4 /*yield*/, booksModel_1.default.findByIdAndUpdate(id, postData, { new: true })];
                     case 1:
                         post = _a.sent();
                         if (post) {
@@ -68,7 +68,7 @@ var FirstController = /** @class */ (function () {
         });
     };
     FirstController.prototype.getAllBooks = function (req, res) {
-        var books = books_1.default.find(function (err, books) {
+        var books = booksModel_1.default.find(function (err, books) {
             if (err) {
                 res.send(err);
             }
@@ -84,11 +84,9 @@ var FirstController = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         id = req.params.id;
-                        console.log(id);
-                        return [4 /*yield*/, books_1.default.findById(id)];
+                        return [4 /*yield*/, booksModel_1.default.findById(id)];
                     case 1:
                         book = _a.sent();
-                        console.log(book);
                         res.send(book);
                         return [2 /*return*/];
                 }
@@ -99,12 +97,7 @@ var FirstController = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        console.log(req.body);
-                        return [4 /*yield*/, books_1.default.create({
-                                title: req.body.title,
-                                author: req.body.author
-                            })];
+                    case 0: return [4 /*yield*/, booksModel_1.default.create(req.body)];
                     case 1:
                         _a.sent();
                         res.send("criado com sucesso");
@@ -118,7 +111,7 @@ var FirstController = /** @class */ (function () {
             var id;
             return __generator(this, function (_a) {
                 id = req.params.id;
-                books_1.default.findByIdAndUpdate(id, req.body, function (err) {
+                booksModel_1.default.findByIdAndUpdate(id, req.body, function (err) {
                     err ? res.send(err) : res.send("alterado com sucesso!");
                 });
                 return [2 /*return*/];
@@ -127,7 +120,7 @@ var FirstController = /** @class */ (function () {
     };
     FirstController.prototype.deleteBook = function (req, res) {
         var id = req.params.id;
-        books_1.default.findByIdAndDelete(id, function (err) {
+        booksModel_1.default.findByIdAndDelete(id, function (err) {
             err ? res.send(err) : res.send("\u00CCd: ".concat(id, " deletado com sucesso"));
         });
     };
