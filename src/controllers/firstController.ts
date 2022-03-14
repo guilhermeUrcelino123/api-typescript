@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import BookModel from "../books";
+import BookCollection from "../entities/booksModel";
 
 
 class FirstController{
@@ -11,8 +11,8 @@ class FirstController{
     }
 
     public getAllBooks(req: Request, res: Response) {
-        
-        let books = BookModel.find((err:any, books:any)=>{
+    
+        let books = BookCollection.find((err:any, books:any)=>{
             if(err){
                 res.send(err)
             }else{
@@ -22,52 +22,40 @@ class FirstController{
     }
 
     public async getBookById(req: Request, res: Response) {
-        const {id} = req.params;
-        console.log(id);
-        let book = await BookModel.findById(id);
-        console.log(book);
-        res.send(book)
-        
+        const {id} = req.params;       
+        let book = await BookCollection.findById(id);        
+        res.send(book)        
     }
 
-    public async insertBook(req: Request, res: Response) {
-
-        console.log(req.body);
+    public async insertBook(req: Request, res: Response) {        
         
-        await BookModel.create({
-            title: req.body.title,
-            author: req.body.author
-        });
-
+        await BookCollection.create(req.body);
         res.send("criado com sucesso")      
     }  
 
     public async updateBook(req: Request, res: Response) {
 
         const {id} = req.params;
-        BookModel.findByIdAndUpdate(id, req.body, (err: any) => {
+        BookCollection.findByIdAndUpdate(id, req.body, (err: any) => {
             err ? res.send(err) : res.send("alterado com sucesso!");
         });     
     }  
     public deleteBook(req: Request, res: Response) {
 
         const {id} = req.params;
-        BookModel.findByIdAndDelete(id,(err: any) => {
+        BookCollection.findByIdAndDelete(id,(err: any) => {
             err ? res.send(err) : res.send(`Ìd: ${id} deletado com sucesso`);
-        });     
-
-        
+        });            
 
     }  
 
     public updateDataBook = async (req: Request, res: Response)=>{
         const id = req.params.id;
         const postData: any = req.body;
-        const post = await BookModel.findByIdAndUpdate(id, postData, { new: true });
+        const post = await BookCollection.findByIdAndUpdate(id, postData, { new: true });
         if (post) {
           res.send(post);
-        }
-        
+        }        
     }  
 
 }

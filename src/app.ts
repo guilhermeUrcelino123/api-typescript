@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express"
 import { router } from "./router";
+import  connectDB  from "./ressources/connectDB";
 
 export class App{
     
@@ -10,7 +11,11 @@ export class App{
         this.server = express();
         this.middleware();
         this.router();
-        this.parser();        
+        this.parser();   
+        this.connDB();     
+    }
+    private connDB(){
+        connectDB;
     }
     
     private middleware(){

@@ -16,8 +16,20 @@ GET https://teste-api-typescript.herokuapp.com/books/622a22d0be566fcd3a86dfa9
 Content-Type: application/json
 
 ###
-GET http://localhost:5000/books
+GET http://localhost:5000/books/
 Content-Type: application/json
+
+###
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "nome": "livro teste 2",
+    "descricao": "teste 2",
+    "preco": 0,
+    "marca": "teste 2",
+    "isbn": "teste 2"
+}
 
 ###
 PUT http://localhost:5000/books/62277e3879fb76ff3e581ec8
@@ -29,7 +41,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE  http://localhost:5000/books/62277d86e3e0e73a3124bcf9
+DELETE  http://localhost:5000/books/622f75129fc9247edd4fa8f1
 Content-Type: application/json
 
 
